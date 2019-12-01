@@ -6,6 +6,5 @@ This repository contains my solutions for the [Advent of Code
 
 They were developed in Common Lisp on [SBCL](http://sbcl.org) 1.5.5.
 
-Each daily puzzle has its own package and exports a `RUN` function that
-accepts the path of the input file and returns two values for the two levels
-of the puzzle.
+Each daily puzzle has its own package and exports two functions `RUN1` and
+`RUN2` which return each part of the solution.
