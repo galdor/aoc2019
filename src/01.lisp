@@ -1,7 +1,7 @@
 
 (defpackage :aoc2019-01
   (:use :cl :aoc2019)
-  (:export :run1 :run2))
+  (:export :run1 :run2 :check))
 
 (in-package :aoc2019-01)
 
@@ -20,16 +20,17 @@
         (incf total-fuel additional-fuel))
       (setf fuel additional-fuel))))
 
-;; 3289802
 (defun run1 ()
   (let ((fuel 0))
     (do-input-lines (1 line fuel)
       (let ((weight (parse-integer line)))
         (incf fuel (base-fuel-need weight))))))
 
-;; 4931831
 (defun run2 ()
   (let ((fuel 0))
     (do-input-lines (1 line fuel)
       (let ((weight (parse-integer line)))
         (incf fuel (total-fuel-need weight))))))
+
+(defun check ()
+  (check-problem-results 1 3289802 4931831))

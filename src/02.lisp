@@ -1,7 +1,7 @@
 
 (defpackage :aoc2019-02
   (:use :cl :aoc2019)
-  (:export :run1 :run2))
+  (:export :run1 :run2 :check))
 
 (in-package :aoc2019-02)
 
@@ -38,12 +38,10 @@
   (eval-program program)
   (aref program 0))
 
-;; 3101844
 (defun run1 ()
   (let ((program (read-program (read-input-file 2))))
     (run-gravity-program program 12 2)))
 
-;; 8478
 (defun run2 ()
   (let ((program (read-program (read-input-file 2)))
         (target 19690720))
@@ -52,3 +50,6 @@
         (when (= (run-gravity-program (copy-seq program) noun verb) target)
           (let ((result (parse-integer (format nil "~D~D" noun verb))))
             (return-from run2 result)))))))
+
+(defun check ()
+  (check-problem-results 2 3101844 8478))
