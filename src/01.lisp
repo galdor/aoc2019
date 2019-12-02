@@ -5,6 +5,8 @@
 
 (in-package :aoc2019-01)
 
+;;; https://adventofcode.com/2019/day/1
+
 (defun base-fuel-need (weight)
   (- (floor (/ weight 3)) 2))
 
@@ -18,12 +20,14 @@
         (incf total-fuel additional-fuel))
       (setf fuel additional-fuel))))
 
+;; 3289802
 (defun run1 ()
   (let ((fuel 0))
     (do-input-lines (1 line fuel)
       (let ((weight (parse-integer line)))
         (incf fuel (base-fuel-need weight))))))
 
+;; 4931831
 (defun run2 ()
   (let ((fuel 0))
     (do-input-lines (1 line fuel)
