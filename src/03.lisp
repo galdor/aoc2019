@@ -105,7 +105,7 @@
                             intersections)))
     (reduce #'min distances)))
 
-(defun smallest-intersection-length (wire1 wire2)
+(defun closest-intersection-wire-length (wire1 wire2)
   (let* ((intersections (wire-intersections wire1 wire2))
          (lengths (mapcar #'cdr intersections)))
     (reduce #'min lengths)))
@@ -118,7 +118,7 @@
 (defun run2 ()
   (destructuring-bind (wire1 wire2)
       (read-input-wires)
-    (smallest-intersection-length wire1 wire2)))
+    (closest-intersection-wire-length wire1 wire2)))
 
 (defun check ()
   (check-problem-results 3 1337 65356))
