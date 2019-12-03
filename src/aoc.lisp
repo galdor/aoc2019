@@ -58,7 +58,7 @@
          (end-of-file ()
            ,result-var)))))
 
-(defun read-input-lines (path &optional (transform #'identity))
+(defun read-input-lines (number &optional (transform #'identity))
   (let ((lines nil))
-    (do-input-lines (path line (nreverse lines))
+    (do-input-lines (number line (nreverse lines))
       (push (funcall transform line) lines))))
