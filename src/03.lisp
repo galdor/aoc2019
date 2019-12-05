@@ -1,6 +1,6 @@
 
 (defpackage :aoc2019-03
-  (:use :cl :aoc2019)
+  (:use :cl :aoc2019-utils)
   (:export :run1 :run2 :check))
 
 (in-package :aoc2019-03)

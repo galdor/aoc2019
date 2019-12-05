@@ -1,5 +1,5 @@
 
-(defpackage :aoc2019
+(defpackage :aoc2019-utils
   (:use :cl)
   (:export :problem-results
            :check-problem-results
@@ -8,7 +8,7 @@
            :do-input-lines
            :read-input-lines))
 
-(in-package :aoc2019)
+(in-package :aoc2019-utils)
 
 (defun problem-run-function (problem-number run-number)
   (let* ((package-name (format nil "AOC2019-~2,'0d" problem-number))

@@ -6,7 +6,7 @@
     :depends-on ("cl-ppcre")
     :pathname "src"
     :serial t
-    :components ((:file "aoc")
+    :components ((:file "utils")
                  (:file "01")
                  (:file "02")
                  (:file "03")
