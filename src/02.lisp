@@ -1,42 +1,18 @@
 
 (defpackage :aoc2019-02
-  (:use :cl :aoc2019-utils)
+  (:use :cl :aoc2019-utils :aoc2019-intcode)
   (:export :run1 :run2 :check))
 
 (in-package :aoc2019-02)
 
 ;;; https://adventofcode.com/2019/day/2
 
-(defun read-program (string)
-  (map 'vector #'parse-integer (ppcre:split "," string)))
-
-(defun eval-program (program)
-  (flet ((value (index)
-           (aref program index))
-         ((setf value) (value index)
-           (setf (aref program index) value)))
-    (do ((i 0))
-        ((= (value i) 99)
-         program)
-      (ecase (value i)
-        (1
-         (let ((op1 (value (+ i 1)))
-               (op2 (value (+ i 2)))
-               (dst (value (+ i 3))))
-           (setf (value dst) (+ (value op1) (value op2))))
-         (incf i 4))
-        (2
-         (let ((op1 (value (+ i 1)))
-               (op2 (value (+ i 2)))
-               (dst (value (+ i 3))))
-           (setf (value dst) (* (value op1) (value op2))))
-         (incf i 4))))))
-
 (defun run-gravity-program (program noun verb)
-  (setf (aref program 1) noun)
-  (setf (aref program 2) verb)
-  (eval-program program)
-  (aref program 0))
+  (let ((vm (make-vm program)))
+    (setf (vm-value vm 1) noun)
+    (setf (vm-value vm 2) verb)
+    (run-vm vm)
+    (vm-value vm 0)))
 
 (defun run1 ()
   (let ((program (read-program (read-input-file 2))))

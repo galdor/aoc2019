@@ -7,6 +7,7 @@
     :pathname "src"
     :serial t
     :components ((:file "utils")
+                 (:file "intcode")
                  (:file "01")
                  (:file "02")
                  (:file "03")
